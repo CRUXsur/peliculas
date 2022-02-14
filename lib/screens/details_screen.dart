@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({Key? key}) : super(key: key);
@@ -18,6 +19,10 @@ class DetailsScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate([
               _PosterAndTitle(),
+              _Overview(),
+              _Overview(),
+              _Overview(),
+              CastingCards(),
             ]),
           )
         ],
@@ -36,10 +41,11 @@ class _CustomAppBar extends StatelessWidget {
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
-        titlePadding: EdgeInsets.all(0),
+        titlePadding: const EdgeInsets.all(0),
         title: Container(
           width: double.infinity,
           alignment: Alignment.bottomCenter,
+          padding: const EdgeInsets.only(bottom: 10),
           color: Colors.black12,
           child: const Text(
             'movie.title',
@@ -102,6 +108,20 @@ class _PosterAndTitle extends StatelessWidget {
             ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class _Overview extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      child: Text(
+        'Veniam id minim culpa aliquip anim do magna incididunt elit. Nulla occaecat deserunt tempor sint Lorem cupidatat ea veniam ut esse est elit tempor adipisicing. Voluptate irure exercitation dolor elit occaecat aliquip ullamco est est nulla pariatur minim est. Sit aliqua fugiat ex fugiat culpa minim deserunt amet sint et duis anim minim. Reprehenderit labore ea eu cupidatat incididunt ea reprehenderit ullamco Lorem aliqua. Irure quis Lorem ipsum proident excepteur ullamco dolore aliqua dolore proident culpa voluptate tempor cillum.',
+        textAlign: TextAlign.justify,
+        style: Theme.of(context).textTheme.subtitle1,
       ),
     );
   }
